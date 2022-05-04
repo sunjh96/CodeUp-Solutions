@@ -3,7 +3,6 @@ def k_num(s, e, k, num):
     return num1[k - 1]
 
 t = int(input())
-
 for i in range(1, t + 1):
     n, s, e, k = map(int, input().split())
     num = list(map(int, input().split()))

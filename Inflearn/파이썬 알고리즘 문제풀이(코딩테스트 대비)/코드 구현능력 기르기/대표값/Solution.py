@@ -18,7 +18,8 @@ for idx, score in enumerate(arr):
 
 print(f'{avg} {index + 1}')
 
-'''n = int(input())    내가 푼 코드(비효율적) 파이썬 round 는 round-half-even방식
+'''
+n = int(input())    내가 푼 코드(비효율적) 파이썬 round 는 round-half-even방식
 arr = list(map(int, input().split()))
 score_min = float('inf')
 avg = 0
@@ -39,4 +40,5 @@ for idx, num in enumerate(arr):
                 score_min = abs(avg - num)
                 index = idx
 
-print(f'{avg} {index + 1}')'''
+print(f'{avg} {index + 1}')
+'''

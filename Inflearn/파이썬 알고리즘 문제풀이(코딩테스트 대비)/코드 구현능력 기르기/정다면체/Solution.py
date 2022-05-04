@@ -18,6 +18,7 @@ for idx, num in enumerate(arr):
 
 for i in range(cnt + 1):
     print(index + i, end = ' ')
+
 '''
 for i in range(len(arr)):
     if arr[i] > max:
