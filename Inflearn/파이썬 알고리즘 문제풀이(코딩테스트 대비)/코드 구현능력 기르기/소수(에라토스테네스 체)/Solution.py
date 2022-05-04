@@ -7,3 +7,5 @@ for i in range(2, n + 1):
             arr[j] = 1
 
 print(arr.count(0))
+
+## 소수 구하는 방법은 여러가지 존재
