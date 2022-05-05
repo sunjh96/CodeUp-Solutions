@@ -4,4 +4,4 @@ for i in range(10):
     n, m = map(int, input().split())
     arr[n - 1:m] = list(reversed(arr[n - 1:m]))
 
-print(arr)
+print(*arr, end = ' ')
