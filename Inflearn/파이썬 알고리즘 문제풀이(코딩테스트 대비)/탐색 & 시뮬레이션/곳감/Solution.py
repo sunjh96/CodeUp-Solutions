@@ -1,27 +1,25 @@
-class Stack:
-    def __init__(self):
-        self.items = []
+n = int(input())
+arr = [list(map(int, input().split())) for _ in range(n)]
+m = int(input())
+dir = [list(map(int, input().split())) for _ in range(m)]
 
-    def push(self, val):
-        self.items.append(val)
+ans = s = 0
+e = n -1
 
-    def pop(self):
-       try:
-           return self.items.pop()
-       except IndexError:
-           print("Stack is empty")
+for i in range(m):
+    if dir[i][1] == 0:
+        arr[dir[i][0] - 1] = arr[dir[i][0] - 1][dir[i][2]:] + arr[dir[i][0] - 1][:dir[i][2]]
+    else:
+        arr[dir[i][0] - 1] = arr[dir[i][0] - 1][- dir[i][2]:] + arr[dir[i][0] - 1][:- dir[i][2]]
 
-    def top(self):
-        try:
-            return self.items[-1]
-        except IndexError:
-            print("Stack is empty")
+for i in range(n):
+    for j in range(s, e + 1):
+        ans += arr[i][j]
+    if i < n // 2:
+        s += 1
+        e -= 1
+    else:
+        s -= 1
+        e += 1
 
-    def __len__(self):
-        return len(self.items)
-
-S = Stack()
-S.push(10)
-S.top()
-print(S.len())
-#print(len(S))
+print(ans)
