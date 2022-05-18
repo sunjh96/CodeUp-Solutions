@@ -6,7 +6,7 @@ start = 0
 end = n - 1
 
 while(True):
-    mid = (start + end) / 2
+    mid = (start + end) // 2
     if arr[mid] == m:
         ans = mid
         break
