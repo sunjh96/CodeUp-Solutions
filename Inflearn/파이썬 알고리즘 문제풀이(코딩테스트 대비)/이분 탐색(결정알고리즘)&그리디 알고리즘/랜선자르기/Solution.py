@@ -1,11 +1,9 @@
-def check_ans(ans):
+def check_ans(mid):
     cnt = 0
     for x in arr:
-        cnt += x // ans
-    if cnt == m:
-        res.append(ans)
-        check_ans(ans + 1)
-    return cnt, res
+        cnt += x // mid
+
+    return cnt
 
 n, m = map(int, input().split())
 arr = []
@@ -13,19 +11,22 @@ arr = []
 for i in range(n):
     arr.append(int(input()))
 
-lt = 0
-rt = max(arr)
-res = []
+first = 1
+last = max(arr)
+ans = 0
 
 while(True):
-    mid = (lt + rt) // 2
-    cnt, res = check_ans(mid)
+    mid = (first + last) // 2
+    cnt = check_ans(mid)
 
-    if cnt == m:
+    if last < first:
         break
+    if cnt >= m:
+        ans = mid
+        first = mid + 1
     elif cnt < m:
-        rt = mid - 1
-    elif cnt > m:
-        lt = mid + 1
+        last = mid - 1
+    else:
+        first = mid + 1
 
-print(max(res))
+print(ans)
