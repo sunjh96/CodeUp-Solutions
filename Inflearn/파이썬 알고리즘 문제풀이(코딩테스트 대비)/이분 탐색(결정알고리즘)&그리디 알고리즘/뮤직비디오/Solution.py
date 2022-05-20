@@ -2,16 +2,14 @@ def check_ans(mid):
     sum = 0
     cnt = 0
 
-    for x in arr:
+    for x in arr[::-1]:
         if sum + x > mid:
             sum = 0
             cnt += 1
         sum += x
-    if sum != 0:
-        cnt += 1
-    return cnt
+    return cnt + 1
 
-n, m = map(int, input().split())
+k, m = map(int, input().split())
 arr = list(map(int, input().split()))
 
 first = 1
