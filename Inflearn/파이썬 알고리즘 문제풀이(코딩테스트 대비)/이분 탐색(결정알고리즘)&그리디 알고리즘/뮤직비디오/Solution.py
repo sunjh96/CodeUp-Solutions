@@ -2,11 +2,12 @@ def check_ans(mid):
     sum = 0
     cnt = 0
 
-    for x in arr[::-1]:
+    for x in arr:
         if sum + x > mid:
-            sum = 0
+            sum = x
             cnt += 1
-        sum += x
+        else:
+            sum += x
     return cnt + 1
 
 k, m = map(int, input().split())
@@ -15,12 +16,13 @@ arr = list(map(int, input().split()))
 first = 1
 last = sum(arr)
 res = 0
+maxx = max(arr)
 
-while first < last:
+while first <= last:
     mid = (first + last) // 2
     cnt = check_ans(mid)
 
-    if cnt <= m:
+    if mid >= maxx and cnt <= m:
         last = mid - 1
         res = mid
     else:
