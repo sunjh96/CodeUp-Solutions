@@ -1,28 +1,36 @@
-class Queue:
-    def __init__(self):
-        self.items = []
-        self.front_index = 0
+import sys
+from collections import deque
 
-    def enqueue(self, val):
-        self.items.append(val)
+n = int(sys.stdin.readline())
+arr = deque(map(int, sys.stdin.readline().split()))
 
-    def dequeue(self):
-        if self.front_index == len(self.itmes):
-            print("Queue is empty!")
-            return None
-        else:
-            x = self.items[self.front_index]
-            self.front_index += 1
-            return x
+seq = []
+dir = []
 
-    def isEmpty(self):
-        if self.front_index == len(self.itmes):
-            print("Queue is empty!")
-        else:
-            return len(self.itmes) - self.front_index
+if arr[0] < arr[-1]:
+    seq.append(arr.popleft())
+    dir.append('L')
+else:
+    seq.append(arr.pop())
+    dir.append('R')
 
-    def front(self):
-        return self.items[self.front_index]
+while(True):
+    if arr[0] < seq[-1] and arr[-1] < seq[-1]:
+        break
+    elif seq[-1] < arr[0] and seq[-1] < arr[-1]:
+        if arr[0] < arr[-1]:
+            seq.append(arr.popleft())
+            dir.append('L')
+        elif arr[-1] < arr[0]:
+            seq.append(arr.pop())
+            dir.append('R')
+    elif seq[-1] < arr[0]:
+        seq.append(arr.popleft())
+        dir.append('L')
+    else:
+        seq.append(arr.pop())
+        dir.append('R')
 
-    def len(self):
-        return len(self.itmes) - self.front_index
+print(len(seq))
+for y in dir:
+    print(y, end='')
