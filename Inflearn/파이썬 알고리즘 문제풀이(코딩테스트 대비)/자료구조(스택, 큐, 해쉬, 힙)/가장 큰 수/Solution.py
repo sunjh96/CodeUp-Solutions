@@ -4,19 +4,13 @@ import sys
 class Stack:
     def __init__(self):
         self.items = []
-        self.min_items = []
 
     def push(self, val):
         self.items.append(val)
-        if not self.min_items or val < self.min_items[-1]:
-            self.min_items.append(val)
 
     def pop(self):
         try:
             val = self.items.pop()
-            if val == self.min_items[-1]:
-                self.min_items.pop()
-
             return val
         except IndexError:
             print("Stack is Empty")
@@ -30,16 +24,12 @@ class Stack:
     def __len__(self):
         return len(self.items)
 
-    def __min__(self):
-        return self.min_items.pop()
-
 
 n, k = map(int, sys.stdin.readline().split())
 n = str(n)
-arr = list(n)
+arr = list(map(int, n))
 
 stack = Stack()
-i = 0
 cnt = 0
 
 for i in range(len(arr)):
