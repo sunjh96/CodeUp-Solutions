@@ -2,6 +2,6 @@ arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
 for i in range(10):
     n, m = map(int, input().split())
-    arr[n - 1:m] = list(reversed(arr[n - 1:m]))
+    arr[n - 1:m] = reversed(arr[n - 1:m])
 
-print(*arr, end = ' ')
+print(*arr, end=' ')
