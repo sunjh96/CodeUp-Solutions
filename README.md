@@ -1,11 +1,3 @@
-# CodeUp-Solutions
+# 백준 문제 추천
 
-코드업 문제 풀이
-
-## Inflearn
-
-## Programmers
-
-## BOJ
-
-## SWEA
+[백준 문제 추천 바로가기](https://sunjh96.github.io/algorithm/algorithm-1/)
